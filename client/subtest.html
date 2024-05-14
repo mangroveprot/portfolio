@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+      * > * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --color-dark: #151c35;
+        --color-secodary-dark: #464c70;
+        --color-primary: #ee709d;
+        --color-text: #8297e2;
+        --color-light: #ebebfb;
+      }
+
+      .container {
+        height: 98vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .board {
+        max-width: 987px;
+        width: 100%;
+        background-color: var(--color-dark);
+        text-align: center;
+        border-radius: 8px;
+        padding: 4em 0;
+      }
+
+      .text-light {
+        color: var(--color-light);
+      }
+
+      .swiper {
+        width: 600px;
+        height: auto;
+      }
+
+      .swiper .swiper-slide .flex {
+        margin: 3em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .swiper .swiper-slide .comments {
+        background-color: var(--color-light);
+        padding: 1.5em 2em;
+        width: 50%;
+        border-radius: 5px;
+        font-size: 0.9em;
+        position: relative;
+      }
+
+      .swiper .swiper-slide .comments::after {
+        content: "";
+        position: absolute;
+        bottom: -19px;
+        left: 45%;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid var(--color-light);
+        z-index: -99;
+      }
+
+      .swiper .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1em;
+      }
+
+      .swiper .profile img {
+        width: 30%;
+        border-radius: 50%;
+        border: 5px solid var(--color-primary);
+        margin: 10px 0;
+      }
+
+      .swiper .profile > h2 {
+        text-decoration: none;
+        color: var(--color-light);
+      }
+
+      .swiper .profile > span {
+        color: var(--color-text);
+        font-size: 0.8em;
+      }
+
+      .swiper .swiper-button-prev,
+      .swiper-button-next {
+        color: var(--color-text);
+        display: none;
+      }
+
+      @media (min-width: 320px) {
+        .board {
+          width: auto;
+        }
+
+        .swiper {
+          width: 320px;
+        }
+
+        .board > h1,
+        p {
+          padding: 0 2em;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .board {
+          width: 100%;
+        }
+
+        .swiper {
+          width: 600px;
+        }
+
+        .swiper .swiper-button-prev,
+        .swiper-button-next {
+          display: initial;
+        }
+      }
+
+      .reviews_container {
+        position: relative;
+        width: 400px;
+        background: #111;
+        padding: 20px 30px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center horizontally */
+        flex-direction: column;
+        margin: 0 auto; /* Center horizontally */
+        margin-top: 50px; /* Adjust as needed */
+      }
+      .reviews_container .post {
+        display: none;
+      }
+      .reviews_container .text {
+        font-size: 25px;
+        color: #666;
+        font-weight: 500;
+      }
+      .reviews_container .edit {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 16px;
+        color: #666;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .reviews_container .edit:hover {
+        text-decoration: underline;
+      }
+      .reviews input[type="radio"] {
+        display: none;
+      }
+      .reviews label {
+        font-size: 40px;
+        color: #444;
+        padding: 10px;
+        float: right;
+        transition: all 0.2s ease;
+      }
+      input:not(:checked) ~ label:hover,
+      input:not(:checked) ~ label:hover ~ label {
+        color: #fd4;
+      }
+      input:checked ~ label {
+        color: #fd4;
+      }
+      input#rate-5:checked ~ label {
+        color: #fe7;
+        text-shadow: 0 0 20px #952;
+      }
+      #rate-1:checked ~ form header:before {
+        content: "I just hate it ";
+      }
+      #rate-2:checked ~ form header:before {
+        content: "I don't like it ";
+      }
+      #rate-3:checked ~ form header:before {
+        content: "It is awesome ";
+      }
+      #rate-4:checked ~ form header:before {
+        content: "I just like it ";
+      }
+      #rate-5:checked ~ form header:before {
+        content: "I just love it ";
+      }
+      .reviews_container form {
+        display: none;
+      }
+      input:checked ~ form {
+        display: block;
+      }
+      form header {
+        width: 100%;
+        font-size: 25px;
+        color: #fe7;
+        font-weight: 500;
+        margin: 5px 0 20px 0;
+        text-align: center;
+        transition: all 0.2s ease;
+      }
+      form .textarea {
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+      }
+      form .textarea textarea {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        color: #eee;
+        border: 1px solid #333;
+        background: #222;
+        padding: 10px;
+        font-size: 17px;
+        resize: none;
+      }
+      .textarea textarea:focus {
+        border-color: #444;
+      }
+      /* name */
+      form .name {
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+      }
+      form .name textarea {
+        height: 60%;
+        width: 100%;
+        outline: none;
+        color: #eee;
+        border: 1px solid #333;
+        background: #222;
+        padding: 10px;
+        font-size: 17px;
+        resize: none;
+      }
+      .name textarea:focus {
+        border-color: #444;
+      }
+      form .btn {
+        height: 45px;
+        width: 100%;
+        margin: 15px 0;
+      }
+      form .btn button {
+        height: 100%;
+        width: 100%;
+        border: 1px solid #444;
+        outline: none;
+        background: #222;
+        color: #999;
+        font-size: 17px;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      form .btn button:hover {
+        background: #1b1b1b;
+      }
+
+      @media (max-width: 1060px) {
+        .testimonial-box {
+          width: 45%;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 790px) {
+        .testimonial-box {
+          width: 100%;
+        }
+        .testimonial-heading h1 {
+          font-size: 1.4rem;
+        }
+      }
+      @media (max-width: 340px) {
+        .box-top {
+          flex-wrap: wrap;
+          margin-bottom: 10px;
+        }
+        .reviews {
+          margin-top: 10px;
+        }
+      }
+      ::selection {
+        color: #ffffff;
+        background-color: #252525;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="reviews_container">
+        <div class="post">
+          <div class="text">Thanks for rating us!</div>
+          <!-- <div class="edit">EDIT</div> -->
+        </div>
+        <div class="reviews">
+          <input type="radio" name="rate" id="rate-5" />
+          <label for="rate-5" class="fas fa-star"></label>
+          <input type="radio" name="rate" id="rate-4" />
+          <label for="rate-4" class="fas fa-star"></label>
+          <input type="radio" name="rate" id="rate-3" />
+          <label for="rate-3" class="fas fa-star"></label>
+          <input type="radio" name="rate" id="rate-2" />
+          <label for="rate-2" class="fas fa-star"></label>
+          <input type="radio" name="rate" id="rate-1" />
+          <label for="rate-1" class="fas fa-star"></label>
+          <form id="commentForm" action="#">
+            <header></header>
+
+            <div class="name">
+              <textarea cols="10" placeholder="Enter Your Name.."></textarea>
+            </div>
+            <div class="textarea">
+              <textarea
+                cols="30"
+                placeholder="Describe your experience.."
+              ></textarea>
+            </div>
+            <div class="btn">
+              <button type="submit">Post</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container">
+        <div class="board">
+          <h2 class="text-light">Word from our customers</h2>
+          <p class="text-light">Some of the fulfilled customers' reviews</p>
+
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.querySelector("button");
+        const post = document.querySelector(".post");
+        const reviews = document.querySelector(".reviews");
+
+        const commentForm = document.getElementById("commentForm");
+        const commentTextarea = document.querySelector(".textarea textarea");
+        const nameArea = document.querySelector(".name textarea");
+
+        const starLabels = document.querySelectorAll(".reviews label");
+
+        let selectedStar = 0;
+
+        starLabels.forEach((label) => {
+          label.addEventListener("click", () => {
+            selectedStar = parseInt(label.getAttribute("for").split("-")[1]);
+          });
+        });
+
+        commentForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const comment = commentTextarea.value;
+          const name = nameArea.value;
+          console.log("Star Rating:", selectedStar);
+          console.log("Comment:", comment);
+          console.log("Name:", name);
+
+          const formData = {
+            rating: selectedStar,
+            comment: comment,
+            name: name,
+          };
+
+          fetch("/data", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              console.log(data);
+              alert("Review submitted successfully!");
+
+              window.location.reload();
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred. Please try again later.");
+            });
+
+          reviews.style.display = "none";
+          post.style.display = "block";
+        });
+      });
+
+      window.onload = async () => {
+        try {
+          const response = await fetch("/data");
+          const data = await response.json();
+
+          if (response.ok) {
+            const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+            data.forEach((item) => {
+              const swiperSlide = document.createElement("div");
+              swiperSlide.classList.add("swiper-slide");
+
+              const flexDiv = document.createElement("div");
+              flexDiv.classList.add("flex");
+
+              const commentsDiv = document.createElement("div");
+              commentsDiv.classList.add("comments");
+              commentsDiv.textContent = item.comment; // Assuming each data item has a comment property
+
+              const profileDiv = document.createElement("div");
+              profileDiv.classList.add("profile");
+
+              const profileImg = document.createElement("img");
+              profileImg.src = item.profileImgUrl; // Assuming each data item has a profile image URL property
+              profileImg.alt = "Profile Image";
+              profileDiv.appendChild(profileImg);
+
+              const profileHeader = document.createElement("h2");
+              profileHeader.textContent = item.name; // Assuming each data item has a name property
+              profileDiv.appendChild(profileHeader);
+
+              const profileSpan = document.createElement("span");
+              profileSpan.textContent = item.role; // Assuming each data item has a role property
+              profileDiv.appendChild(profileSpan);
+
+              flexDiv.appendChild(commentsDiv);
+              flexDiv.appendChild(profileDiv);
+              swiperSlide.appendChild(flexDiv);
+              swiperWrapper.appendChild(swiperSlide);
+            });
+          } else {
+            console.error("Error fetching data:", data);
+            alert("Error fetching data. Please try again later.");
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          alert("Error fetching data. Please try again later.");
+        }
+      };
+    </script>
+  </body>
+</html>

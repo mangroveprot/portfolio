@@ -48,6 +48,7 @@ header {
   background: transparent;
   padding: 28px 12%;
   transition: all 0.5s ease;
+  background-color: var(--bg-color);
 }
 
 .logo {
@@ -279,6 +280,8 @@ header {
 .experience {
   max-width: 1200px;
   margin: 5rem auto;
+  min-height: 100%;
+  height: 100vh;
 }
 
 .experience .cards {

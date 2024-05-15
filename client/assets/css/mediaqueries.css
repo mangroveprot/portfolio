@@ -101,9 +101,34 @@
     width: 45%;
     padding: 10px;
   }
+
+  .about-me {
+    height: none;
+  }
+  .about-me .about-wrapper {
+    display: block;
+    height: 60vh;
+  }
+
+  .about-me .about .pic {
+    height: 200px;
+    width: 200px;
+    margin-top: -5rem;
+  }
 }
 
 @media (max-width: 790px) {
+  .home {
+    height: 100vh;
+  }
+
+  .about-me {
+    height: 100vh;
+  }
+  .experience {
+    padding: 0;
+  }
+
   .swiper .swiper-button-prev,
   .swiper .swiper-button-next {
     display: block; /* Ensure buttons are displayed */

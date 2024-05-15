@@ -102,7 +102,7 @@ header {
 
 .home {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding-top: 9rem;
   padding-bottom: 9rem;
@@ -110,7 +110,8 @@ header {
 
 .home_content {
   display: flex;
-  gap: 17rem;
+  gap: 9rem;
+  border-bottom: 1px var(--secondary) solid;
 }
 
 .home_context h1 {
@@ -122,10 +123,16 @@ header {
 }
 
 .home_image {
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_image img {
+  width: auto;
+  height: 400px;
 }
 
 .home_context {
@@ -217,7 +224,15 @@ header {
 
 /* About */
 .about-me {
-  margin-top: 5rem;
+  min-height: 100%;
+  height: 100vh;
+}
+
+.about-me .about-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .about-me .about {
@@ -232,6 +247,11 @@ header {
 }
 
 .about-me .about-header {
+}
+.about-me .about p {
+  padding: 0.5rem;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .about-me .data {

@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 const port = 3000;
 
-app.use(express.static(__dirname + "/client/"));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/client/")));
 app.use(bodyParser.json());
 
 const dataSchema = new mongoose.Schema({
@@ -55,7 +55,7 @@ app.get("/data", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/client/index.html");
+  res.sendFile(path.join(__dirname, "client", "index.html"));
 });
 
 app.listen(port, () => {

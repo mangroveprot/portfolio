@@ -1,4 +1,15 @@
 // Nav icon
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.navbar a');
+
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navLinks.forEach(nav => nav.classList.remove('active'));
+          link.classList.add('active');
+      });
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   let menu = document.querySelector("#menu-icon");
   let navbar = document.querySelector(".navbar");

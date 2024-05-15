@@ -707,9 +707,9 @@ form .btn button:hover {
 /* Contact Me */
 .contact_me {
   padding: 20px;
-  margin: 0 auto;
+  margin: 5rem auto;
   max-width: 1200px;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
 }
@@ -733,7 +733,6 @@ form .btn button:hover {
   max-width: 600px;
   width: 100%;
   text-align: center;
-  padding-bottom: 20rem;
 }
 
 .top {
@@ -795,7 +794,7 @@ footer {
 }
 
 .footer a {
-  color: #808080;
+  color: var(--secondary);
 }
 
 .footer a:hover {

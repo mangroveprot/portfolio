@@ -13,6 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// swiper
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 // Store the input data in db
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.querySelector("button");

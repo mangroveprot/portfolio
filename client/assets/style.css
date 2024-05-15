@@ -24,6 +24,7 @@
 
 body {
   min-height: 100vh;
+  height: 100%;
   background: var(--bg-color);
   color: var(--secondary);
 }
@@ -378,13 +379,6 @@ header {
   border-radius: 30px;
 }
 
-/*=====================================================================================================================4
-=================================
-=============================
-=============================
-=
-=====================================================
-*/
 /* Reviews */
 .reviews_section {
   margin-top: 5rem;
@@ -700,4 +694,171 @@ form .btn button:hover {
 .post-container p {
   font-size: 19px;
   font-weight: 400;
+}
+/*=====================================================================================================================4
+=================================
+=============================
+=============================
+=
+=====================================================
+*/
+/* Ensure the html and body take up the full height */
+
+/* Contact Me */
+.contact_me {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+.contact_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 2rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20rem;
+}
+
+.top {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.top h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.top_text p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.button-40 {
+  background-color: var(--secondary);
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: var(--primary);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button-40:hover {
+  background-color: var(--tertiary);
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+footer {
+  position: relative;
+  bottom: 0;
+}
+
+.footer a {
+  color: #808080;
+}
+
+.footer a:hover {
+  opacity: 0.5;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+.footer li {
+  display: inline;
+  padding-right: 0.3em;
+  font-size: 1.5em;
+}
+
+ul.social-media {
+  padding: 0;
+}
+
+footer .copyright {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer li {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top h1 {
+    font-size: 1.25em;
+  }
+
+  .top_text p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .top h1 {
+    font-size: 1em;
+  }
+
+  .top_text p {
+    font-size: 0.8em;
+  }
 }

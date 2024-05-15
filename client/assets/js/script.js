@@ -1,12 +1,12 @@
 // Nav icon
-document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = document.querySelectorAll('.navbar a');
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".navbar a");
 
-  navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-          navLinks.forEach(nav => nav.classList.remove('active'));
-          link.classList.add('active');
-      });
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((nav) => nav.classList.remove("active"));
+      link.classList.add("active");
+    });
   });
 });
 
@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Menu icon or navbar not found in the DOM.");
   }
 });
-
 
 // Store the input data in db
 document.addEventListener("DOMContentLoaded", function () {
@@ -133,3 +132,7 @@ window.onload = async () => {
     alert("Error fetching data. Please try again later.");
   }
 };
+
+function goToWindowsPage() {
+  window.location.href = "#projects";
+}

@@ -127,6 +127,7 @@
   }
   .experience {
     padding: 0;
+    height: auto;
   }
 
   .swiper .swiper-button-prev,

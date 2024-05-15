@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(__dirname + "/client/"));
-// app.use(express.static("frontend"));
+app.use(express.static("public"));
 app.use(bodyParser.json());
 
 const dataSchema = new mongoose.Schema({

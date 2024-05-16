@@ -507,7 +507,7 @@ header {
 
 .swiper .profile > h2 {
   text-decoration: none;
-  color: var(--color-light);
+  color: var(--secondary);
 }
 
 .swiper .profile > span {

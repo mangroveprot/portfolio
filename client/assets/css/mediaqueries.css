@@ -126,8 +126,7 @@
     height: 100vh;
   }
   .experience {
-    padding: 0;
-    height: auto;
+    background-color: #1212;
   }
 
   .swiper .swiper-button-prev,

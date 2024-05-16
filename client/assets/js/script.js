@@ -136,3 +136,6 @@ window.onload = async () => {
 function goToWindowsPage() {
   window.location.href = "#projects";
 }
+function goToWindowsPage() {
+  window.location.href = "http://bhrental-demo.free.nf/";
+}

@@ -106,7 +106,7 @@ window.onload = async () => {
         profileDiv.classList.add("profile");
 
         const profileImg = document.createElement("img");
-        profileImg.src = "assets/img/main_photo.jpg";
+        profileImg.src = "assets/img/reviews-icon.jpg";
         profileImg.alt = "Profile Image";
         profileDiv.appendChild(profileImg);
 
@@ -136,6 +136,6 @@ window.onload = async () => {
 function goToWindowsPage() {
   window.location.href = "#projects";
 }
-function goToWindowsPage() {
+function goToDemoBh() {
   window.location.href = "http://bhrental-demo.free.nf/";
 }

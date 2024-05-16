@@ -111,9 +111,7 @@
   }
 
   .about-me .about .pic {
-    height: 200px;
-    width: 200px;
-    margin-top: -5rem;
+    display: none;
   }
 }
 
@@ -123,10 +121,7 @@
   }
 
   .about-me {
-    height: 100vh;
-  }
-  .experience {
-    background-color: #1212;
+    height: 80vh;
   }
 
   .swiper .swiper-button-prev,
